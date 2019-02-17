@@ -11,6 +11,7 @@
     <thead>
       <th><%= Spree.t(:email) %></th>
       <th><%= Spree.t(:uid) %></th>
+      <th>Details</th>
     </thead>
     <tbody>
       <% @contacts.each do |contact| %>
@@ -21,7 +22,9 @@
             <td><%= contact.email %></td>
           <% end %>
           <td><%= contact.uid %></td>
+          <td><%= link_to 'Orders', admin_marketing_list_abandoned_cart_cart_path(@marketing_list_abandoned_cart, contact) %></td>
         </tr>
+
       <% end %>
     </tbody>
   </table>
