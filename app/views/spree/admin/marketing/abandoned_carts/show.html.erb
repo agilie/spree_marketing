@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= @marketing_list_abandoned_cart.name %>
+  <%= @marketing_abandoned_cart.name %>
 <% end %>
 
 <h3>Contacts</h3>
@@ -22,7 +22,7 @@
             <td><%= contact.email %></td>
           <% end %>
           <td><%= contact.uid %></td>
-          <td><%= link_to 'Orders', admin_marketing_list_abandoned_cart_cart_path(@marketing_list_abandoned_cart, contact) %></td>
+          <td><%= link_to 'Orders', admin_marketing_abandoned_cart_cart_path(@marketing_abandoned_cart, contact) %></td>
         </tr>
 
       <% end %>
