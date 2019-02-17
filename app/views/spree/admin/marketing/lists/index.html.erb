@@ -19,7 +19,7 @@
       <tbody>
         <% sub_class_lists.sort_by { |list| -list.contacts.count }.each do |list| %>
           <tr>
-            <td class="col-md-5"><%= link_to list.presenter.sub_list_name, send("admin_marketing_list_#{model}_path", list) %></td>
+            <td class="col-md-5"><%= link_to list.presenter.sub_list_name, send("admin_marketing_#{model}_path", list) %></td>
             <td class="col-md-4"><%= list.uid %></td>
             <td class="col-md-3 text-center"><%= list.contacts.count %></td>
           </tr>
