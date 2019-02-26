@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'spree_core', '>= 3.1.0', '< 4.0'
   s.add_dependency 'gibbon'
   s.add_dependency 'whenever'
+  s.add_dependency 'exception_notification'
 
   s.add_development_dependency 'acts_as_paranoid'
   s.add_development_dependency 'appraisal'
