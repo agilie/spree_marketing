@@ -1,0 +1,47 @@
+<% content_for :page_title do %>
+  <%= "Open orders for #{@marketing_cart.email}" %>
+<% end %>
+
+<h3>Orders</h3>
+
+<br>
+
+<table class="table table-striped">
+  <thead>
+  <th><%= 'Order Number' %></th>
+  <th><%= 'Order Total' %></th>
+  <th><%= 'Order Date' %></th>
+  </thead>
+  <tbody>
+  <% @empty_orders.each do |order| %>
+    <tr>
+      <td><%= link_to order.number, spree.edit_admin_order_path(order) %></td>
+      <td><%= order.display_total %></td>
+      <td><%= order.updated_at %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td colspan="2">
+        <table class="table">
+          <thead>
+          <th><%= 'REF NUMBER' %></th>
+          <th><%= 'PRODUCT' %></th>
+          <th><%= 'QUANTITY' %></th>
+          <th><%= 'AMOUNT (TAX INCLUDED)' %></th>
+          </thead>
+          <tbody>
+            <% order.line_items.each do |line_item| %>
+            <tr>
+              <td><%= link_to line_item.variant.sku || item.variant.product.sku, spree.admin_product_path(line_item.variant.product) %></td>
+              <td><%= line_item.name %></td>
+              <td><%= line_item.quantity %></td>
+              <td><%= line_item.display_total.to_html %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
